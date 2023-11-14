@@ -12,8 +12,6 @@ class ComplaintBinner:
         self.model = T5ForConditionalGeneration.from_pretrained(model_name).to(self.device)
 
     def get_sequences(self, document: str, n_queries: int = 5, prefix_prompt: str = '') -> list[str]:
-        top_p = 0.95
-
         if n_queries == 0:
             return []
         if document == '':
@@ -21,8 +19,8 @@ class ComplaintBinner:
         input_ids = self.tokenizer.encode(f'{prefix_prompt}{document}', truncation=True, return_tensors='pt')
         outputs = self.model.generate(
                     input_ids=input_ids.to(self.device),
-                    do_sample=True,
-                    top_p=top_p,
+                    num_beams=10,
+                    no_repeat_ngram_size=1,
                     num_return_sequences=n_queries)
         queries = [self.tokenizer.decode(output, skip_special_tokens=True) for output in outputs]
         return queries

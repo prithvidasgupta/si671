@@ -27,11 +27,11 @@ tqdm.pandas()
 def generate_bins(text):
     x=cb.get_sequences(text, n_queries=2, prefix_prompt=prompt)
     return x
-pd.set_option('display.max_colwidth', None) 
+pd.set_option('display.max_colwidth', None)
 out = pd.DataFrame(
     {
     'input': df[(df['STATE']=='WV')][:10]['CDESCR'].values,
     'actual': df[(df['STATE']=='WV')][:10]['COMPDESC'].values,
     'predict': df[(df['STATE']=='WV')][:10]['CDESCR'].progress_apply(generate_bins).values
     })
-out
+print(out[['actual', 'predict']])
