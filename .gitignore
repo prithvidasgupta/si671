@@ -3,3 +3,7 @@ data/FLAT_CMPL.txt
 data/FLAT_CMPL.zip
 data/FLAT_RCL.txt
 data/recalls_FLAT_RCL.zip
+output/cmpl_enrich.csv
+
+output/cmpl_select_parts.csv
+output/cmpl_select_parts.csv.zip
