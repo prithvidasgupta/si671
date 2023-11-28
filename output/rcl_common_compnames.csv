@@ -1,51 +1,51 @@
 ,COMPNAME,count
-0,air bags:frontal:driver side:inflator module,1660
-1,air bags:frontal:passenger side:inflator module,1489
-2,equipment:other:owners/service/other manual ,1298
-3,back over prevention: sensing system: camera,1164
-4,"fuel system, gasoline:delivery:fuel pump",1132
-5,air bags:frontal,915
-6,vehicle speed control,712
-7,electrical system:software,629
-8,seat belts:front:buckle assembly,587
-9,power train:automatic transmission,483
-10,power train:driveline:driveshaft,456
-11,"service brakes, hydraulic:foundation components:hoses, lines/piping, and fittings",405
-12,latches/locks/linkages:doors:latch,361
-13,exterior lighting,344
-14,visibility:defroster/defogger/hvac system,300
-15,visibility:power window devices and controls,297
-16,"fuel system, gasoline:storage:tank assembly",295
-17,seats,290
-18,seat belts:front:anchorage,288
-19,"service brakes, hydraulic:foundation components:master cylinder",280
-20,seat belts:front,269
-21,equipment:other:labels,261
-22,visibility/wiper,259
-23,electrical system:body control module:software,256
-24,"fuel system, gasoline:delivery:hoses, lines/piping, and fittings",251
-25,engine and engine cooling:cooling system:fan,249
-26,visibility:rearview mirrors/devices,245
-27,"service brakes, hydraulic:pedals and linkages",207
-28,suspension:rear,207
-29,steering:gear box (other than rack and pinion),204
-30,seat belts:pretensioner,182
-31,steering: steering wheel/handle bar,175
-32,engine and engine cooling:engine,174
-33,air bags,168
-34,vehicle speed control:accelerator pedal,168
-35,power train:automatic transmission:gear position indication (prndl),168
-36,seat belts,165
-37,electrical system:wiring,158
-38,"service brakes, hydraulic:antilock/traction control/electronic limited slip:control unit/module ",152
-39,"service brakes, hydraulic:power assist:vacuum",151
-40,electrical system,150
-41,engine and engine cooling,149
-42,engine,147
-43,wheels,140
-44,structure:frame and members:underbody shields,137
-45,"service brakes, hydraulic:antilock/traction control/electronic limited slip",136
-46,power train:axle assembly:banjo housing,136
-47,visibility:windshield,135
-48,wheels:lugs/nuts/bolts/studs,130
-49,seats:front assembly:recliner,129
+0,electrical system:software,18922
+1,communication: auto crash notification,16630
+2,equipment,11825
+3,equipment:recreational vehicle/trailer,8015
+4,equipment adaptive/mobility,5201
+5,exterior lighting,4945
+6,equipment:other:labels,4927
+7,air bags:frontal:passenger side:inflator module,4440
+8,electrical system,4364
+9,"fuel system, gasoline:delivery:fuel pump",4111
+10,seats,3274
+11,air bags:frontal:driver side:inflator module,3101
+12,exterior lighting:headlights,2884
+13,electrical system:wiring,2679
+14,back over prevention: sensing system: camera,2237
+15,structure:body,2178
+16,tires,2153
+17,vehicle speed control,2136
+18,steering,2106
+19,structure,2097
+20,seat belts,2088
+21,"service brakes, hydraulic:foundation components:hoses, lines/piping, and fittings",2020
+22,air bags:frontal,1937
+23,"service brakes, hydraulic",1824
+24,engine and engine cooling,1793
+25,exterior lighting:brake lights,1790
+26,electrical system:alternator/generator/regulator,1772
+27,seat belts:rear/other:retractor,1686
+28,engine and engine cooling:engine,1684
+29,latches/locks/linkages,1652
+30,equipment:other:owners/service/other manual ,1601
+31,"fuel system, gasoline:delivery:hoses, lines/piping, and fittings",1581
+32,exterior lighting:turn signal,1500
+33,"fuel system, gasoline",1470
+34,structure:frame and members,1459
+35,trailer hitches,1458
+36,power train:automatic transmission,1454
+37,tires:tread/belt,1428
+38,seat belts:front:retractor,1421
+39,seat belts:front:buckle assembly,1395
+40,suspension,1362
+41,"service brakes, air",1321
+42,latches/locks/linkages:doors:latch,1316
+43,steering: steering wheel/handle bar,1286
+44,power train:driveline:driveshaft,1285
+45,air bags,1263
+46,seat belts:front:anchorage,1203
+47,"fuel system, gasoline:storage:tank assembly",1200
+48,steering:linkages:tie rod assembly,1198
+49,engine and engine cooling:engine:gasoline:belts and associated pulleys,1120
