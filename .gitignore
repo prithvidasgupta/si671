@@ -8,3 +8,6 @@ data/recalls_FLAT_RCL.zip
 # PM Notes.md
 # PM Notes.md
 output/cmpl_enrich.csv
+output/cmpl_select_parts.csv
+.gitignore
+output/cmpl_select_parts.csv.zip
