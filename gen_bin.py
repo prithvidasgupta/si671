@@ -1,37 +1,40 @@
-from  tqdm import tqdm
-import complaint_binner
-import pandas as pd
+from tqdm import tqdm
+import pandas as pd 
+from complaint_binner import ComplaintBinner
 
-columns = []
-with open('./data/headers.txt', 'r', encoding='utf-8') as file:
-    for line in file:
-        columns.append(line.strip())
+def newliner(arr):
+    return ", ".join(arr)
 
-dataset = []
-with open('./data/FLAT_CMPL.txt', 'r', encoding='utf-8') as file:
-    for line in tqdm(file, total=1937674):
-            splits = line.split('\t')
-            temp = {}
-            for idx in range(len(splits)):
-                temp[columns[idx]] = splits[idx]
-            dataset.append(temp)
+important_parts = ['air bags', 'electrical system', 'fuel system', 'power train', 'seat belts', 'suspension', 'vehicle speed control', 'visibility', 'wheels', 'engine', 'service brakes']
 
-df = pd.DataFrame(dataset)
-mfr_df=df[df.MFR_NAME.isin(['Ford Motor Company', 'General Motors, LLC', 'Tesla, Inc.', 'Hyundai Motor America', 'Toyota Motor Corporation','Honda (American Honda Motor Co.)'])].copy()
+unknown_parts = ['air bags', 'fuel system', 'power train', 'suspension', 'vehicle speed control', 'visibility', 'wheels', 'engine', 'service brakes', 'other component']
 
-cb = complaint_binner.ComplaintBinner('google/flan-t5-large')
-prompt = 'Which faulty car component is the following text about? '
+def create_prompt1(cell):
+ return  f'Which of the following car components may lead to the following complaint? Complaint: "'+ cell +'"'
 
-tqdm.pandas()
+def create_prompt2(cell):
+ return  f'Which of the following car components may lead to the following complaint? {newliner(important_parts)}' + ' Complaint: "'+ cell +'"'
 
-def generate_bins(text):
-    x=cb.get_sequences(text, n_queries=2, prefix_prompt=prompt)
-    return x
-pd.set_option('display.max_colwidth', None)
-out = pd.DataFrame(
-    {
-    'input': df[(df['STATE']=='WV')][:10]['CDESCR'].values,
-    'actual': df[(df['STATE']=='WV')][:10]['COMPDESC'].values,
-    'predict': df[(df['STATE']=='WV')][:10]['CDESCR'].progress_apply(generate_bins).values
-    })
-print(out[['actual', 'predict']])
+def create_prompt3(cell):
+ return  f'Which of the following car components may lead to the following complaint? {newliner(unknown_parts)}' + ' Complaint: "'+ cell +'"'
+
+df = pd.read_csv('./data/2014-2023_hyundai_cmpl.csv')
+
+text_to_process1 = list(df['CDESCR'].str.lower().apply(create_prompt1).values)
+text_to_process2 = list(df['CDESCR'].str.lower().apply(create_prompt2).values)
+text_to_process3 = list(df['CDESCR'].str.lower().apply(create_prompt3).values)
+
+cb = ComplaintBinner('google/flan-t5-large')
+
+l1 = []
+l2 = []
+l3 = []
+
+for i in tqdm(range(len(df))):
+    l1.append(cb.get_sequences(text_to_process1[i], n_queries=1))
+    l2.append(cb.get_sequences(text_to_process2[i], n_queries=1))
+    l3.append(cb.get_sequences(text_to_process3[i], n_queries=1))
+df['LABELS_1'] = l1
+df['LABELS_2'] = l2
+df ['LABELS_3'] = l3
+df.to_csv('Hyundai-FLANT5.csv', index=False)
