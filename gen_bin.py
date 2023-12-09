@@ -10,7 +10,7 @@ important_parts = ['air bags', 'electrical system', 'fuel system', 'power train'
 unknown_parts = ['air bags', 'fuel system', 'power train', 'suspension', 'vehicle speed control', 'visibility', 'wheels', 'engine', 'service brakes', 'other component']
 
 def create_prompt1(cell):
- return  f'Which of the following car components may lead to the following complaint? Complaint: "'+ cell +'"'
+ return  f'Which car component may lead to the following complaint? Complaint: "'+ cell +'"'
 
 def create_prompt2(cell):
  return  f'Which of the following car components may lead to the following complaint? {newliner(important_parts)}' + ' Complaint: "'+ cell +'"'
